@@ -19,11 +19,9 @@ Point Point::TinhTien(int x, int y) {
 	return b;
 }
 int Point::getHoanhDo() {
-	cout << iHoanhDo << endl;
 	return iHoanhDo;
 }
 int Point::getTungDo() {
-	cout << iTungDo << endl;
 	return iTungDo;
 }
 void Point::setHoanhDo(const int iHoanhDo_new) {
