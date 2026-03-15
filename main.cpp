@@ -1,27 +1,30 @@
 #include <iostream>
-#include "cPhanSo.h"
+#include "Point.h"
 using namespace std;
-
 int main() {
-    cPhanSo a;
-    a.NhapTuSo();
-    a.NhapMauSo();
+	Point x;
+	x.NhapHoanhDo();
+	x.NhapTungDo();
+	x.XuatPoint();
 
-    cPhanSo b;
-    b.NhapTuSo();
-    b.NhapMauSo();
+	Point y;
+	y = x.TinhTien(15, 11);
+	y.XuatPoint();
 
-    cPhanSo c;
+	x.getHoanhDo();
+	x.getTungDo();
 
-     c = a.Add(b);
-     c.XuatPhanSo();
+	y.getHoanhDo();
+	y.getTungDo();
 
-     c = a.Sub(b);
-     c.XuatPhanSo();
+	x.setHoanhDo(15);
+	x.XuatPoint();
+	x.setTungDo(11);
+	x.XuatPoint();
 
-     c = a.Divide(b);
-     c.XuatPhanSo();
-
-     c = a.Multi(b);
-     c.XuatPhanSo();
+	y.setHoanhDo(14);
+	y.XuatPoint();
+	y.setTungDo(11);
+	y.XuatPoint();
+	return 0;
 }
