@@ -14,30 +14,45 @@ void SoPhuc::XuatSoPhuc() {
 	if (iPhanAo < 0) {
 		cout << iPhanThuc << iPhanAo << "i" << endl;
 	}
+	else if (iPhanThuc == 0) cout << iPhanAo << "i" << endl;
+	else if (iPhanAo == 0) cout << iPhanThuc << endl;
 	else cout << iPhanThuc << "+" << iPhanAo << "i" << endl;
 }
-SoPhuc SoPhuc::Add(const SoPhuc b) {
+SoPhuc SoPhuc::Add() {
+	SoPhuc b;
+	b.NhapPhanThuc();
+	b.NhapPhanAo();
 	SoPhuc c;
 	c.iPhanThuc = this->iPhanThuc + b.iPhanThuc;
 	c.iPhanAo = this->iPhanAo + b.iPhanAo;
 	return c;
 }
-SoPhuc SoPhuc::Sub(const SoPhuc b) {
+SoPhuc SoPhuc::Sub() {
+	SoPhuc b;
+	b.NhapPhanThuc();
+	b.NhapPhanAo();
 	SoPhuc c;
 	c.iPhanThuc = this->iPhanThuc - b.iPhanThuc;
 	c.iPhanAo = this->iPhanAo - b.iPhanAo;
 	return c;
 }
-SoPhuc SoPhuc::Multi(const SoPhuc b) {
+SoPhuc SoPhuc::Multi() {
+	SoPhuc b;
+	b.NhapPhanThuc();
+	b.NhapPhanAo();
 	SoPhuc c;
 	c.iPhanThuc = this->iPhanThuc * b.iPhanThuc - this->iPhanAo * b.iPhanAo;
 	c.iPhanAo = this->iPhanThuc * b.iPhanAo + this->iPhanAo * b.iPhanThuc;
 	return c;
 }
-SoPhuc SoPhuc::Div(const SoPhuc b) {
+SoPhuc SoPhuc::Div() {
+	SoPhuc b;
+	b.NhapPhanThuc();
+	b.NhapPhanAo();
 	SoPhuc c;
 	int mau = pow(b.iPhanThuc, 2) + pow(b.iPhanAo, 2);
 	c.iPhanThuc = (this->iPhanThuc * b.iPhanThuc + this->iPhanAo * b.iPhanAo) / mau;
 	c.iPhanAo = (b.iPhanThuc * this->iPhanAo - this->iPhanThuc * b.iPhanAo) / mau;
+	if (c.iPhanThuc == 0 && c.iPhanAo == 0) cout << "Loi!";
 	return c;
 }
