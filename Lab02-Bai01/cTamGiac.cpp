@@ -62,20 +62,6 @@ void Point::setTungDo() {
 	cin >> q;
 	dTungDo = q;
 }
-//Point Point::operator+=(double b) {
-//	return Point(b, b);
-//}
-//double Point::tangHoanhDo(double b) {
-//	Point H;
-//	H.x = this->x + b;
-//	return H.x;
-//}
-//double Point::tangTungDo(double b) {
-//	Point T;
-//	T.y = this->y + b;
-//	return T.y;
-//}
-
 cTamGiac::cTamGiac(Point x, Point y, Point z) {
 	this->A = x;
 	this->B = y;
@@ -125,25 +111,16 @@ cTamGiac cTamGiac::TinhTien(double b) {
 }
 
 cTamGiac cTamGiac::Quay(double goc) {
-	double xA = A.getHoanhDo();
-	double yA = A.getTungDo();
-
-	double xB = B.getHoanhDo();
-	double yB = B.getTungDo();
-
-	double xC = C.getHoanhDo();
-	double yC = C.getTungDo();
-
 	double cosAlpha = cos(goc);
 	double sinAlpha = sin(goc);
-	xA = xA * cosAlpha - yA * sinAlpha;
-	yA = xA * sinAlpha + yA * cosAlpha;
+	double xA = A.getHoanhDo() * cosAlpha - A.getTungDo() * sinAlpha;
+	double yA = A.getHoanhDo() * sinAlpha + A.getTungDo() * cosAlpha;
 	
-	xB = xB * cosAlpha - yB * sinAlpha;
-	yB = xB * sinAlpha + yB * cosAlpha;
+	double xB = B.getHoanhDo() * cosAlpha - B.getTungDo() * sinAlpha;
+	double yB = B.getHoanhDo() * sinAlpha + B.getTungDo() * cosAlpha;
 
-	xC = xC * cosAlpha - yC * sinAlpha;
-	yC = xC * sinAlpha + yC * cosAlpha;
+	double xC = C.getHoanhDo() * cosAlpha - C.getTungDo() * sinAlpha;
+	double yC = C.getHoanhDo() * sinAlpha + C.getTungDo() * cosAlpha;
 	Point newA(xA, yA);
 	Point newB(xB, yB);
 	Point newC(xC, yC);
@@ -151,26 +128,17 @@ cTamGiac cTamGiac::Quay(double goc) {
 }
 cTamGiac cTamGiac::Scale(double k) {
 	cTamGiac result = *this;
-	double xA = A.getHoanhDo();
-	double yA = A.getTungDo();
-
-	double xB = B.getHoanhDo();
-	double yB = B.getTungDo();
-
-	double xC = C.getHoanhDo();
-	double yC = C.getTungDo();
-
 	double xG = (xA + xB + xC) / 3;
 	double yG = (yA + yB + yC) / 3;
 	Point G(xG, yG);
-	xA = k * xA + (1 - k) * xG;
-	yA = k * yA + (1 - k) * yG;
+	double xA = k * A.getHoanhDo() + (1 - k) * xG;
+	double yA = k * A.getTungDo() + (1 - k) * yG;
 	Point newA(xA, yA);
-	xB = k * xB + (1 - k) * xG;
-	yB = k * yB + (1 - k) * yG;
+	double xB = k * B.getHoanhDo() + (1 - k) * xG;
+	double yB = k * B.getTungDo() + (1 - k) * yG;
 	Point newB(xB, yB);
-	xC = k* xC + (1 - k) * xG;
-	yC = k * yC + (1 - k) * yG;
+	double xC = k * C.getHoanhDo() + (1 - k) * xG;
+	double yC = k * C.getTungDo() + (1 - k) * yG;
 	Point newC(xC, yC);
 	return cTamGiac(newA, newB, newC);
 }
