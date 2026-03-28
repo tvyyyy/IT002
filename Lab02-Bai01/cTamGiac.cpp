@@ -72,7 +72,7 @@ void cTamGiac::check() {
 	double m = this->A.DoDaiVector(B);
 	double n = this->A.DoDaiVector(C);
 	double p = this->B.DoDaiVector(C);
-	if ((m * m + n * n >= p * p) && (n * n + p * p >= m * m) && (m * m + p * p >= n * n)) {
+	if ((m + n >= p) && (n + p >= m) && (m + p >= n)) {
 		if ((m * m + n * n == p * p) || (n * n + p * p == m * m) || (m * m + p * p == n * n)) {
 			if (m == n || n == p || m == p) {
 				cout << "Tam giac vuong can";
